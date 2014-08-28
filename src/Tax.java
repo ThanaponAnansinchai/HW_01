@@ -31,7 +31,7 @@ public class Tax {
         int Income = sc.nextInt();//รับค่า รายได้ต่อปี
         int temp = Income; // เก็บค่ารายได้ต่อปีเพื่อนำไปคำนวน
 
-        if (temp > IncomeRange[0]) {
+        if (Income > IncomeRange[0]) {
             System.out.println("0 - 150000 you pay 0 baht");
             temp -= 150000;
         } else {
@@ -40,31 +40,44 @@ public class Tax {
             System.exit(0);
         }
 
-        if (temp > IncomeRange[1] - 150000) {
+        if (Income > IncomeRange[1]) {
             System.out.println("150001 – 300000 you pay ");
         } else {
             System.out.print("150001 - " + Income + " you pay ");
-            System.out.println(temp*TaxRate[1] / 100);
+            System.out.print(temp + " x 0.05 = ");
+            System.out.print(temp*TaxRate[1] / 100);
             System.out.println(" baht");
             System.exit(0);
         }
 
-        if (temp >= IncomeRange[2]) {
+        if (Income > IncomeRange[2]) {
             System.out.println("300001 – 500000 you pay");
         } else {
-            System.out.print("300001 - " + Income);
+            System.out.print("300001 - " + Income + " you pay ");
+            System.out.print(temp + " x 0.10 = ");
+            System.out.print(temp*TaxRate[2] / 100);
+            System.out.println(" baht");
+            System.exit(0);
         }
 
-        if (temp >= IncomeRange[3]) {
+        if (Income >= IncomeRange[3]) {
             System.out.println("500001 – 750000 you pay");
         } else {
-            System.out.print("500001 - " + Income);
+            System.out.print("500001 - " + Income + " you pay ");
+            System.out.print(temp + " x 0.15 = ");
+            System.out.print(temp*TaxRate[3] / 100);
+            System.out.println(" baht");
+            System.exit(0);
         }
 
-        if (temp >= 750000) {
+        if (temp > 750000) {
             System.out.println("750001 – 100000 you pay");
         } else {
-            System.out.print("750001 - " + Income);
+            System.out.print("750001 - " + Income + " you pay ");
+            System.out.print(temp + " x 0.20 = ");
+            System.out.print(temp*MaxTaxRate / 100);
+            System.out.println(" baht");
+            System.exit(0);
         }
 
     }
