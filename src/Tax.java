@@ -37,49 +37,68 @@ public class Tax {
         } else {
             System.out.print("0 - " + Income);
             System.out.println(" you pay 0 baht");
+            System.out.println("Total Tax : " + sum + " baht");
             System.exit(0);
         }
 
         if (Income > IncomeRange[1]) {
-            System.out.println("150001 – 300000 you pay ");
+            System.out.print("150001 – 300000 you pay ");
+            System.out.print("150000 x 0.05 = ");
+            System.out.println(150000 * TaxRate[1] / 100 + " baht");
+            sum += (150000 * TaxRate[1] / 100);
+            temp -= 150000;
         } else {
             System.out.print("150001 - " + Income + " you pay ");
             System.out.print(temp + " x 0.05 = ");
-            System.out.print(temp*TaxRate[1] / 100);
+            System.out.print(temp * TaxRate[1] / 100);
             System.out.println(" baht");
+            sum += (temp * TaxRate[1] / 100);
+            System.out.println("Total Tax : " + sum + " baht");
             System.exit(0);
         }
 
         if (Income > IncomeRange[2]) {
-            System.out.println("300001 – 500000 you pay");
+            System.out.print("300001 – 500000 you pay ");
+            System.out.print("200000 x 0.10 = ");
+            System.out.println(200000 * TaxRate[2] / 100 + " baht");
+            sum += (200000 * TaxRate[2] / 100);
+            temp -= 200000;
         } else {
             System.out.print("300001 - " + Income + " you pay ");
             System.out.print(temp + " x 0.10 = ");
-            System.out.print(temp*TaxRate[2] / 100);
+            System.out.print(temp * TaxRate[2] / 100);
             System.out.println(" baht");
+            sum += (temp * TaxRate[2] / 100);
+            System.out.println("Total Tax : " + sum + " baht");
             System.exit(0);
         }
 
         if (Income >= IncomeRange[3]) {
-            System.out.println("500001 – 750000 you pay");
+            System.out.print("500001 – 750000 you pay ");
+            System.out.print("200000 x 0.10 = ");
+            System.out.println(250000 * TaxRate[3] / 100 + " baht");
+            sum += (250000 * TaxRate[3] / 100);
+            temp -= 250000;
         } else {
             System.out.print("500001 - " + Income + " you pay ");
             System.out.print(temp + " x 0.15 = ");
-            System.out.print(temp*TaxRate[3] / 100);
+            System.out.print(temp * TaxRate[3] / 100);
             System.out.println(" baht");
+            sum += (temp * TaxRate[3] / 100);
+            System.out.println("Total Tax : " + sum + " baht");
             System.exit(0);
         }
 
-        if (temp > 750000) {
-            System.out.println("750001 – 100000 you pay");
-        } else {
+        if (Income > 750000) {
             System.out.print("750001 - " + Income + " you pay ");
             System.out.print(temp + " x 0.20 = ");
-            System.out.print(temp*MaxTaxRate / 100);
+            System.out.print(temp * MaxTaxRate / 100);
             System.out.println(" baht");
+            sum += (temp * MaxTaxRate / 100);
+            System.out.println("Total Tax : "+ sum +" baht");
             System.exit(0);
         }
-
+        
     }
 
 }
